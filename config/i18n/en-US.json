@@ -27,6 +27,9 @@
     "Colorblind": {
       "label": "Colorblind Mode"
     },
+    "ColorGrey": {
+      "label": "Grey Scale Mode"
+    },
     "Measurement": {
       "label": "Measurement: ",
       "winRate": "Win Rate",

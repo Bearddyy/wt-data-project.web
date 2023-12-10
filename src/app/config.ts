@@ -204,6 +204,9 @@ interface LocalizationJson {
         readonly Colorblind: {
             readonly label: string
         }
+        readonly ColorGrey: {
+            readonly label: string
+        }
     }
 
     readonly BrHeatmapPage: {
@@ -449,6 +452,7 @@ export class Localization {
         }("Sidebar", "Scale")
 
         static Colorblind = new CheckboxLocalization("Sidebar", "Colorblind");
+        static ColorGrey = new CheckboxLocalization("Sidebar", "ColorGrey");
     };
 
     static BrHeatmapPage = {

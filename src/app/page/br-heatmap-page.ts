@@ -6,7 +6,7 @@ import { BrRangeSelect, ClassSelect, DateSelect, MeasurementSelect, ModeSelect, 
 import * as d3 from "d3";
 import { BRRange, Clazz, Measurement, Mode } from "../options";
 import { Localization } from "../config";
-import { Checkbox, ColorblindCheckbox } from "../sidebar/checkbox";
+import { Checkbox, ColorblindCheckbox, ColorGreyCheckbox } from "../sidebar/checkbox";
 
 
 @Singleton(BRHeatMapPage)
@@ -31,6 +31,7 @@ export class BRHeatMapPage extends Page {
         Container.get<Select>(BrRangeSelect).init();
         // colorblind mode checkbox
         Container.get<Checkbox>(ColorblindCheckbox).init();
+        Container.get<Checkbox>(ColorGreyCheckbox).init();
         // init main content plot
         // rebind the container to BrHeatmap constructor to new a object
         Container.rebind(BrHeatmap).toSelf();
@@ -50,6 +51,10 @@ export class BRHeatMapPage extends Page {
             .onchange(async () => {
                 localStorage.setItem("colorblind-checkbox", d3.select("#colorblind-checkbox").property("checked").toString())
                 await this.plot.update(false)
+            });
+        utils.setEvent.byIds("color-grey-checkbox")
+            .onchange(async () => {
+                localStorage.setItem("color-grey-checkbox", d3.select("#color-grey-checkbox").property("checked").toString())
             });
     }
 

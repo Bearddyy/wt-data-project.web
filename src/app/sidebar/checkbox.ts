@@ -95,9 +95,16 @@ export class CheckboxBuilder {
 
 // date selection for choosing date
 export const ColorblindCheckbox = Symbol("ColorblindCheckbox");
+export const ColorGreyCheckbox = Symbol("ColorGreyCheckbox");
 Container.bind(ColorblindCheckbox).toDynamicValue(() => {
     return Container.get(CheckboxBuilder)
         .id("colorblind-checkbox")
         .label(Container.get(Localization.Sidebar.Colorblind.label))
+        .class.add("plot-checkbox");
+})
+Container.bind(ColorGreyCheckbox).toDynamicValue(() => {
+    return Container.get(CheckboxBuilder)
+        .id("color-grey-checkbox")
+        .label(Container.get(Localization.Sidebar.ColorGrey.label))
         .class.add("plot-checkbox");
 })
